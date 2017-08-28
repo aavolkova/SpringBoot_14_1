@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<form action="#" th:action="@{/directorForm}" th:object="${newDirector}" method="post">
+
+    <div>
+        <label>Director's Name:</label>
+        <div>
+            <input type="text" th:field="*{name}" />
+            <p><span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/></p>
+        </div>
+    </div>
+
+
+    <div >
+        <label>Director's Genre:</label>
+        <div>
+            <input type="text" th:field="*{genre}" />
+            <p><span th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"/></p>
+        </div>
+    </div>
+
+
+    <input class="btn btn-primary" type="submit" value="Submit"/></input>
+    <input class="btn btn-primary" type="reset" value="Reset"/>
+
+</form>
+
+<a class="btn btn-primary" href="/" role="button">Link to the Home Page</a>
+
+</body>
+</html>
