@@ -9,13 +9,14 @@
 
 <div>
     <h3 th:text="'Name: ' + ${newDirector.name}"></h3>
-    <h3 th:text="'Ganre: ' + ${newDirector.genre}"></h3>
+    <h3 th:text="'Genre: ' + ${newDirector.genre}"></h3>
 </div>
 
-<a class="btn btn-secondary" href="/movieForm" type = "submit">Add Movie</a><br/>
-<a class="btn btn-secondary" href="/directorForm" type = "submit">Add Another Director</a><br/>
-<a class="btn btn-secondary" href="/index" type = "submit">See Home Page</a><br/>
 
+<a class="btn btn-secondary" href="/directorForm" type = "submit">Add Another Director</a><br/>
+<a class="btn btn-secondary" href="/listAllDirectors" type = "submit">See All Directors</a><br/>
+<!--<a class="btn btn-secondary" href="/movieForm" type = "submit">Add Movie</a><br/>-->
+<a class="btn btn-secondary" href="/listAllMovies" type = "submit">See All Movies</a><br/>
 
 </body>
 </html>

@@ -7,8 +7,12 @@
 </head>
 <body>
 
-<form action="#" th:action="@{/movieForm}" th:object="${newMovie}" method="post">
-
+<form action="#"
+      th:action="@{/movieForm}"
+      th:object="${newMovie}"
+      method="post">
+    <input type="hidden" th:field="*{director.id}"/>
+    <input type="hidden" th:field="*{id}"/>
     <div>
         <label>Movie Title:</label>
         <div>
@@ -40,8 +44,9 @@
     <!--<input class="btn btn-primary" type="reset" value="Reset"/>-->
 
 </form>
-
-<a class="btn btn-primary" href="/" role="button">Link to the Home Page</a>
+<a class="btn btn-secondary" href="/listAllMovies" type = "submit">See All Movies</a><br/>
+<a class="btn btn-secondary" href="/listAllDirectors" type = "submit">See All Directors</a><br/>
+<!--<a class="btn btn-primary" href="/" role="button">Link to the Home Page</a>-->
 
 </body>
 </html>

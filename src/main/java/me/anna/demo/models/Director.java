@@ -2,28 +2,32 @@ package me.anna.demo.models;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 public class Director {
+//    @NotEmpty
+//    @Size(min=1, max=50, message = "Must enter name.")
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
-//    @NotEmpty
-//    @Size(min=1, max=50, message = "Must enter name.")
     private String name;
-
-//    @NotEmpty
-//    @Size(min=1, max=50, message = "Must enter genre.")
     private String genre;
 
     @OneToMany(mappedBy = "director", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<Movie> movies;
 
 
+    // constructor (we can also do it in the controller)
+    public Director(){
+        setMovies(new HashSet<>());
+    }
 
+    // Setters and Getters:
     public long getId() {
         return id;
     }
@@ -54,6 +58,13 @@ public class Director {
 
     public void setMovies(Set<Movie> movies) {
         this.movies = movies;
+    }
+
+
+    // Add a method:
+    public void addMovie(Movie m){
+        m.setDirector(this);  //set director with this object (set director not by id)
+        movies.add(m);
     }
 
 
